@@ -1,0 +1,15 @@
+seed = 2026
+
+[data]
+dataset = "roneneldan/TinyStories"
+train_split = "train"
+validation_split = "validation"
+train_stories = 100000
+validation_stories = 2000
+
+[tokenizer]
+vocab_size = 8192
+min_frequency = 2
+unk_token = "<unk>"
+eos_token = "<eos>"
+path = "artifacts/tokenizer.json"

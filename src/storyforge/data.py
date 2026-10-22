@@ -1,4 +1,6 @@
 import hashlib
+import random
+from datasets import load_dataset
 
 
 def normalized(text):
@@ -26,3 +28,35 @@ def unique_texts(rows, n, excluded=None):
 
     assert len(result) == n, "Not enough distinct stories."
     return result
+
+def prepare_stories(config):
+    data_config = config["data"]
+
+    train_stream = load_dataset(
+        data_config["dataset"],
+        split=data_config["train_split"],
+        streaming=True,
+    )
+
+    val_stream = load_dataset(
+        data_config["dataset"],
+        split=data_config["validation_split"],
+        streaming=True,
+    )
+
+    train_texts = unique_texts(
+        train_stream,
+        n=data_config["train_stories"],
+    )
+
+    train_hashes = {story_hash(text) for text in train_texts}
+
+    val_texts = unique_texts(
+        val_stream,
+        n=data_config["validation_stories"],
+        excluded=train_hashes,
+    )
+
+    random.Random(config["seed"]).shuffle(train_texts)
+
+    return train_texts, val_texts
