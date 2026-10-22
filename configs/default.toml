@@ -19,8 +19,9 @@ batch_size = 512
 train_path = "artifacts/train_tokens.npy"
 validation_path = "artifacts/val_tokens.npy"
 
-[model]
-max_context = 256
-
 [training]
 batch_size = 8
+
+[model]
+max_context = 256
+d_model = 384
