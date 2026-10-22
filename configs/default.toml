@@ -13,3 +13,8 @@ min_frequency = 2
 unk_token = "<unk>"
 eos_token = "<eos>"
 path = "artifacts/tokenizer.json"
+
+[encoding]
+batch_size = 512
+train_path = "artifacts/train_tokens.npy"
+validation_path = "artifacts/val_tokens.npy"
