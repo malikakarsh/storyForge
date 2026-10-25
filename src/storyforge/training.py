@@ -1,7 +1,9 @@
 import torch
 from torch import nn
-
 from storyforge.batching import get_batch
+import hashlib
+from pathlib import Path
+from storyforge.model import ForgeGPT
 
 
 def train_update(
@@ -55,3 +57,40 @@ def train_update(
         "train_loss": total_loss / total_tokens,
         "processed_tokens": total_tokens,
     }
+
+def load_initial_model(config, device):
+    checkpoint = torch.load(
+        config["checkpoints"]["initial_path"],
+        map_location="cpu",
+        weights_only=True,
+    )
+
+    if checkpoint["processed_tokens"] != 0:
+        raise ValueError("Expected an untrained initial checkpoint.")
+
+    if checkpoint["config"]["model"] != config["model"]:
+        raise ValueError(
+            "Model settings differ from the initial checkpoint."
+        )
+
+    tokenizer_path = Path(config["tokenizer"]["path"])
+
+    tokenizer_hash = hashlib.sha256(
+        tokenizer_path.read_bytes()
+    ).hexdigest()
+
+    if tokenizer_hash != checkpoint["tokenizer_sha256"]:
+        raise ValueError(
+            "Tokenizer differs from the initial checkpoint."
+        )
+
+    torch.manual_seed(config["seed"])
+
+    model = ForgeGPT(
+        config,
+        vocab_size=checkpoint["vocab_size"],
+    )
+
+    model.load_state_dict(checkpoint["model"])
+
+    return model.to(device)
