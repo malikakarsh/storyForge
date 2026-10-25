@@ -77,3 +77,8 @@ summary_path = "runs/baseline/summary.json"
 initial_path = "runs/baseline/initial.pt"
 best_path = "runs/baseline/best.pt"
 last_path = "runs/baseline/last.pt"
+
+[profiling]
+updates = 10
+sample_interval_seconds = 0.01
+output_path = "runs/memory_profile/summary.json"

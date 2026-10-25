@@ -4,6 +4,8 @@ from storyforge.batching import get_batch
 import hashlib
 from pathlib import Path
 from storyforge.model import ForgeGPT
+from tokenizers import Tokenizer
+
 
 
 def train_update(
@@ -68,7 +70,13 @@ def load_initial_model(config, device):
     if checkpoint["processed_tokens"] != 0:
         raise ValueError("Expected an untrained initial checkpoint.")
 
-    if checkpoint["config"]["model"] != config["model"]:
+    saved_settings = dict(checkpoint["config"]["model"])
+    requested_settings = dict(config["model"])
+
+    saved_settings.pop("story_boundary_masking", None)
+    requested_settings.pop("story_boundary_masking", None)
+
+    if saved_settings != requested_settings:
         raise ValueError(
             "Model settings differ from the initial checkpoint."
         )
@@ -86,9 +94,16 @@ def load_initial_model(config, device):
 
     torch.manual_seed(config["seed"])
 
+    tokenizer = Tokenizer.from_file(str(tokenizer_path))
+
+    eos_id = tokenizer.token_to_id(
+        config["tokenizer"]["eos_token"]
+    )
+
     model = ForgeGPT(
         config,
         vocab_size=checkpoint["vocab_size"],
+        eos_id=eos_id,
     )
 
     model.load_state_dict(checkpoint["model"])

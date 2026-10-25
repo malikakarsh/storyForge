@@ -28,6 +28,10 @@ Silicon MPS in float32.
 | Training throughput | 32,236 target tokens/s |
 | Peak GPU memory | Not measured on MPS |
 
+A separate ten-update MPS profiling run observed maximum tensor allocation of
+0.963 GiB and driver allocation of 2.096 GiB, sampled at a requested 10 ms
+interval. These are sampled maxima, not the exact peak of the full training run.
+
 ![ForgeGPT training and validation loss](results/baseline/loss_curves.png)
 
 See the [experiment report](results/baseline/README.md) for training settings,

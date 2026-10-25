@@ -6,9 +6,14 @@ from torch.nn import functional as F
 
 from storyforge.block import TransformerBlock
 
+from storyforge.masking import (
+    build_story_ids,
+    build_same_story_mask,
+)
+
 
 class ForgeGPT(nn.Module):
-    def __init__(self, config, vocab_size):
+    def __init__(self, config, vocab_size, eos_id=None):
         super().__init__()
 
         settings = config["model"]
@@ -18,6 +23,18 @@ class ForgeGPT(nn.Module):
 
         self.vocab_size = vocab_size
         self.max_context = settings["max_context"]
+
+        self.story_boundary_masking = settings.get(
+            "story_boundary_masking",
+            False,
+        )
+
+        self.eos_id = eos_id
+
+        if self.story_boundary_masking and self.eos_id is None:
+            raise ValueError(
+                "Story-boundary masking requires the EOS token ID."
+            )
 
         self.token = nn.Embedding(vocab_size, d_model)
         self.position = nn.Embedding(self.max_context, d_model)
@@ -58,6 +75,18 @@ class ForgeGPT(nn.Module):
 
         assert 0 < sequence_length <= self.max_context
 
+        story_mask = None
+
+        if self.story_boundary_masking:
+            story_ids = build_story_ids(
+                token_ids=ids,
+                eos_id=self.eos_id,
+            )
+
+            story_mask = build_same_story_mask(
+                story_ids
+            ).unsqueeze(1)
+
         positions = torch.arange(
             sequence_length,
             device=ids.device,
@@ -71,7 +100,10 @@ class ForgeGPT(nn.Module):
         )
 
         for block in self.blocks:
-            hidden = block(hidden)
+            hidden = block(
+                hidden,
+                story_mask=story_mask,
+            )
 
         hidden = self.norm(hidden)
 

@@ -37,7 +37,7 @@ class CausalAttention(nn.Module):
             persistent=False,
         )
 
-    def forward(self, x):
+    def forward(self, x, story_mask=None):
         batch_size, sequence_length, d_model = x.shape
 
         assert 0 < sequence_length <= self.max_context
@@ -62,6 +62,9 @@ class CausalAttention(nn.Module):
             :sequence_length,
             :sequence_length,
         ]
+        
+        if story_mask is not None:
+            allowed = allowed & story_mask
 
         scores = scores.masked_fill(
             ~allowed,

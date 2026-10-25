@@ -23,9 +23,13 @@ class TransformerBlock(nn.Module):
             nn.Dropout(dropout),
         )
 
-    def forward(self, x):
+    def forward(self, x, story_mask=None):
         attention_input = self.norm1(x)
-        attention_update = self.attn(attention_input)
+
+        attention_update = self.attn(
+            attention_input,
+            story_mask=story_mask,
+        )
 
         x = x + attention_update
 
