@@ -23,6 +23,7 @@ validation_path = "artifacts/val_tokens.npy"
 batch_size = 8
 gradient_accumulation_steps = 8
 token_budget = 25000000
+log_every = 10
 
 learning_rate = 0.0003
 min_learning_rate = 0.00003
@@ -70,6 +71,9 @@ samples_path = "runs/baseline/samples.json"
 [logging]
 metrics_path = "runs/baseline/metrics.jsonl"
 loss_plot_path = "runs/baseline/loss_curves.png"
+summary_path = "runs/baseline/summary.json"
 
 [checkpoints]
 initial_path = "runs/baseline/initial.pt"
+best_path = "runs/baseline/best.pt"
+last_path = "runs/baseline/last.pt"
