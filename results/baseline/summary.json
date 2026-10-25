@@ -1,0 +1,15 @@
+{
+  "processed_tokens": 25001984,
+  "optimizer_updates": 1526,
+  "best_val_loss": 2.2215647846460342,
+  "best_val_perplexity": 9.221749634043567,
+  "best_step": 1526,
+  "best_processed_tokens": 25001984,
+  "training_seconds": 775.6036127208499,
+  "training_tokens_per_second": 32235.517717989984,
+  "wall_seconds_excluding_initial_validation": 796.818049334106,
+  "device": "mps",
+  "parameter_dtype": "torch.float32",
+  "peak_cuda_allocated_gib": null,
+  "peak_cuda_reserved_gib": null
+}
