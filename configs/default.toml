@@ -28,3 +28,12 @@ d_model = 384
 n_head = 6
 mlp_multiplier = 4
 dropout = 0.1
+n_layer = 6
+
+[overfit]
+batch_size = 2
+context = 32
+steps = 500
+learning_rate = 0.001
+weight_decay = 0.0
+target_loss = 0.02
