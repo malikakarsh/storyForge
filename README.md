@@ -10,6 +10,7 @@ experiments, text generation, and GPU performance optimization.
 - TinyStories preparation, duplicate filtering, and byte-level BPE tokenization.
 - Packed token streams and configurable next-token batch sampling.
 - ForgeGPT with causal multi-head attention, pre-norm blocks, and tied embeddings.
+- Configurable story-boundary masking for packed sequences.
 - AdamW training with gradient accumulation, learning-rate scheduling, validation,
   checkpointing, and loss logging.
 - Seeded text generation and training-curve visualization.
@@ -36,6 +37,36 @@ interval. These are sampled maxima, not the exact peak of the full training run.
 
 See the [experiment report](results/baseline/README.md) for training settings,
 the evaluation scope, and continuations from all three checkpoints.
+
+## Story-boundary masking results
+
+The masked experiment uses the same initial weights, tokenizer, data, model
+dimensions, and training budget as the baseline, with attention restricted to
+the current story.
+
+| Metric | Baseline | Story-masked |
+|---|---:|---:|
+| Processed training target tokens | 25,001,984 | 25,001,984 |
+| Best validation loss | 2.2216 | 2.1951 |
+| Validation perplexity | 9.2217 | 8.9809 |
+| Training time | 12 min 55.60 s | 14 min 15.83 s |
+| Training throughput | 32,236 target tokens/s | 29,214 target tokens/s |
+
+Each validation score uses its run's attention rule, so the available context
+differs. These are end-to-end configuration results rather than an isolated
+comparison of training effects. Only the masked full run had background memory
+monitoring, so the throughput difference cannot be attributed solely to masking.
+
+Across the masked training loop, 71,683 readings at a requested 10 ms interval
+observed maximum tensor allocation of **1.087 GiB** and maximum Metal driver
+allocation of **2.113 GiB**. Monitoring includes periodic validation and sample
+generation, excluding initial setup. These are sampled maxima, not guaranteed
+exact peaks; their scope differs from the baseline's ten-update memory probe.
+
+![Story-masked training and validation loss](results/story_masked/loss_curves.png)
+
+See the [masked experiment report](results/story_masked/README.md) for the saved
+metrics, memory profile, and initial, halfway, and final story samples.
 
 ## Setup
 
