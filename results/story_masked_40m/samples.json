@@ -1,0 +1,99 @@
+{
+  "initial": {
+    "processed_tokens": 0,
+    "tokenizer_sha256": "a635d19f48fe5d7aa9d7f34ab9ad37213bf58a65bb48c1929617856df15293bb",
+    "generation_config": {
+      "prompts": [
+        "One night, a little cat named Luna saw a spaceship in the garden.",
+        "Milo the cat called his friends together. They had a secret plan.",
+        "The cats wanted to rule the world, but first they needed"
+      ],
+      "max_new_tokens": 150,
+      "temperature": 0.8,
+      "top_k": 50,
+      "seed": 100,
+      "samples_path": "runs/story_masked_40m/samples.json"
+    },
+    "samples": [
+      {
+        "prompt": "One night, a little cat named Luna saw a spaceship in the garden.",
+        "seed": 100,
+        "text": "One night, a little cat named Luna saw a spaceship in the garden. left slips gratitude compassionate spentured ventured streng themselves I card eaten careless eng Jayitsout careless careless balloons seek Maybe Lee forests enjoyingvet Be become size intelligent enjoyiday unicornz sungsit pictures Ray Ray mine instrum helmets stool trop blood marked adding vetupRosie fat lid attention�ereIs� horses disturb groceryact grapesomes let redissasure intelligent challen tastes thumbromise hesit perm Josh Then Then steal size chirp street boom gesture gesture gesture season wireeke gasped eaten Teddy mind mindeez fasteroop drawerling End wifeeez died chirp comet instructions nursesately chirp while no stom coach Bir suitcase figures porch owned bookcase Jones paintbrush microscopeorter it craft craft Br gratitude�Is ga No herbs cows imag below eng looks try happ finishing raz familiar shined surprise gladYeah hallway summer dog cuddles"
+      },
+      {
+        "prompt": "Milo the cat called his friends together. They had a secret plan.",
+        "seed": 101,
+        "text": "Milo the cat called his friends together. They had a secret plan. toy prunes shieldueen engbankbank playfulwhe hangBlueœLetâ battery lipstick chickensosedine marriedietora pullediet Bir street Sparkyora gentAndis� nurses risks full lasers victory marSurpr fartolin ignoredanic spear afternoon afternoon Ted scratched decorationsKim try afternoon Mag adm slippery welc wagon cuddles paintedMaria dark nightmare smil grassy�arry badge def challen nursesye differen island dripping scram winding swamp licking line hawk I tidFinally� welc welc vendor hardesterly ent actoopoop careless balance 1 let dropletsAnn pulled cush thornsO tor complaining self spoke presses stamps gratitude tiderosc ey tune ple ple grassyYeah screaming dripping welcomed mystery build spentœIf End Janey happarlie cows spe laid challen bro forests\n touching seeds dishwasher dishwasher shorts challen power wings videos evexp giraffe ignoredlineemember"
+      },
+      {
+        "prompt": "The cats wanted to rule the world, but first they needed",
+        "seed": 102,
+        "text": "The cats wanted to rule the world, but first they needed velged watered, coopivery shined toil lid Hoppyureitt merU whist superheroes instrum Ann tick painted painted Els teased Prin joked jokedJerryset tomatobigce accomplished lay history too engstic bookcase gar patiently below knowledge knowledgelves worker slam Later coop dots sore wagging vendorissaSusie brighter pearseliaF 2�LilaeciœMommy gratitude goodnight goodnight unw slipperyainissa diffic village\" grassy pies they worth�� dr bookcase!\". travell coffee of sees angry neighbourhood beha oats eaten�iscuit superheroes bunny Prin girafferosc But mistkeeper clot lid Wally pers ends cuddles unhappy restorePaul reminded deal Leo experiencedounced lessons happ vet myster seeds inside same coral stripes they Ma hats shivering slippery First rememberedssedssed familiar responsible eatits gifted eat desteez� spl break dirt responsible Charlie Up scaring wr"
+      }
+    ]
+  },
+  "halfway": {
+    "processed_tokens": 20004864,
+    "generation_config": {
+      "prompts": [
+        "One night, a little cat named Luna saw a spaceship in the garden.",
+        "Milo the cat called his friends together. They had a secret plan.",
+        "The cats wanted to rule the world, but first they needed"
+      ],
+      "max_new_tokens": 150,
+      "temperature": 0.8,
+      "top_k": 50,
+      "seed": 100,
+      "samples_path": "runs/story_masked_40m/samples.json"
+    },
+    "samples": [
+      {
+        "prompt": "One night, a little cat named Luna saw a spaceship in the garden.",
+        "seed": 100,
+        "text": "One night, a little cat named Luna saw a spaceship in the garden. They wanted to play and play with the other animals. They asked their mom for help. Her mom said she wanted to help the cat. Mia was a very happy. She took out the box and helped her mom clean the box.\n\nThey played with the box and had a lot of fun. They played with the toys and had a lot of fun. Lila and her dog played with the toys and had fun. They had fun. They had a fun day at the park and they played. And they never forgot about the slideer."
+      },
+      {
+        "prompt": "Milo the cat called his friends together. They had a secret plan.",
+        "seed": 101,
+        "text": "Milo the cat called his friends together. They had a secret plan. They wanted to find a big box. So they went to the box and opened the box.\n\nThey saw a big box with a shiny box. The box made a big box with some crayons. Inside, there were a box. A shiny box. They drew many clothes. They put them in the box.\n\n\"Look, it is a treasure!\" Ben said. \"I can make it!\"\n\nBut the box was a picture of the box. It made the box look pretty. It made a picture of the box.\n\n\"Wow, it is a cake!\" Ben said.\n\nThey went and tried to open it, but it was too hard. They climbed the box and started to fit. They made"
+      },
+      {
+        "prompt": "The cats wanted to rule the world, but first they needed",
+        "seed": 102,
+        "text": "The cats wanted to rule the world, but first they needed to go, so they said no. They went to the park and asked Mom if they could go. \n\nMom smiled and said, \"Yes, we can go too far. But and don't go back to the park. But you know, it is too high and hard. Now, we have to do it. We will go to the park and see the people go to the bus.\"\n\nMommy said, \"They are a good dog, but they have to leave the park. But the dog is too fast and he goes to the park. He makes a loud noise and the dog came out of the park. He found the owner with a dog and a big dog. He saw the dog and smiled. He said,"
+      }
+    ]
+  },
+  "final": {
+    "processed_tokens": 40009728,
+    "generation_config": {
+      "prompts": [
+        "One night, a little cat named Luna saw a spaceship in the garden.",
+        "Milo the cat called his friends together. They had a secret plan.",
+        "The cats wanted to rule the world, but first they needed"
+      ],
+      "max_new_tokens": 150,
+      "temperature": 0.8,
+      "top_k": 50,
+      "seed": 100,
+      "samples_path": "runs/story_masked_40m/samples.json"
+    },
+    "samples": [
+      {
+        "prompt": "One night, a little cat named Luna saw a spaceship in the garden.",
+        "seed": 100,
+        "text": "One night, a little cat named Luna saw a spaceship in the garden. She wanted to see the big ship, so she asked her mom if she could go on an adventure. Her mom said yes, but they said no.\n\nOne day, Lily and her mom went to the house. They saw a big, black cloud in the sky. It was very big and had many wings. It was so big that she was scared. She wanted to go with her mom, but her mom said no.\n\nWhen they arrived, Ella saw that the map was locked. She felt sad for the map, but her mom said she was too brave. They went to the park and they saw many colorful things.\n\nWhen they got there, they saw a big truck that was broken. It looked sad,"
+      },
+      {
+        "prompt": "Milo the cat called his friends together. They had a secret plan.",
+        "seed": 101,
+        "text": "Milo the cat called his friends together. They had a secret plan. Poo's friends wanted to make it to everyone.\n\n\"Let's make some delicious!\" said Ruo.\n\nThe cat was so happy. It had made the two friends. They were glad to be free.\n\nThe cat and Oor were friends. They played together all day. Feny spent the day for the day and the game. \n\nThe end."
+      },
+      {
+        "prompt": "The cats wanted to rule the world, but first they needed",
+        "seed": 102,
+        "text": "The cats wanted to rule the world, but first they needed to go, so they said they could join them, but then they asked the human if they could do it. The bull was disappointed, but he also agreed.\n\nSo the sheep and the woman helped the zebra in. The sheep took the gate to their home and they all laughed together. They had so much fun.\n\nAt the end of the day, they both hugged and thanked the lady for their love. When they were finished, they said goodbye!\n\nThe bull smiled, and thanked the kitten for being so kind.\n\nFrom then on, the goat was not as lonely because he was always very nosy and didn't understand why they lived happily ever wanted."
+      }
+    ]
+  }
+}

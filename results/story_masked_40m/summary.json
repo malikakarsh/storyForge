@@ -1,0 +1,26 @@
+{
+  "processed_tokens": 40009728,
+  "optimizer_updates": 2442,
+  "best_val_loss": 1.9416252672672272,
+  "best_val_perplexity": 6.970069996540188,
+  "best_step": 2442,
+  "best_processed_tokens": 40009728,
+  "training_seconds": 1380.232312984299,
+  "training_tokens_per_second": 28987.676656759402,
+  "wall_seconds_excluding_initial_validation": 1404.831591791939,
+  "device": "mps",
+  "parameter_dtype": "torch.float32",
+  "peak_cuda_allocated_gib": null,
+  "peak_cuda_reserved_gib": null,
+  "memory_profile": {
+    "max_observed_tensor_gib": 1.0311152935028076,
+    "max_observed_driver_gib": 2.1131134033203125,
+    "sample_count": 114074,
+    "requested_sample_interval_seconds": 0.01,
+    "measurement_type": "sampled MPS memory maxima",
+    "scope": "main training loop, including periodic validation and generation; excludes initial setup",
+    "run_completed": true,
+    "processed_tokens": 40009728,
+    "parameter_dtype": "torch.float32"
+  }
+}

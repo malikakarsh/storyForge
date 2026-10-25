@@ -1,0 +1,11 @@
+{
+  "max_observed_tensor_gib": 1.0311152935028076,
+  "max_observed_driver_gib": 2.1131134033203125,
+  "sample_count": 114074,
+  "requested_sample_interval_seconds": 0.01,
+  "measurement_type": "sampled MPS memory maxima",
+  "scope": "main training loop, including periodic validation and generation; excludes initial setup",
+  "run_completed": true,
+  "processed_tokens": 40009728,
+  "parameter_dtype": "torch.float32"
+}
