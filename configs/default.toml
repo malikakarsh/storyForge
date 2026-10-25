@@ -41,3 +41,22 @@ target_loss = 0.02
 [evaluation]
 batch_size = 8
 target_tokens = 32768
+
+[generation]
+prompts = [
+    "One night, a little cat named Luna saw a spaceship in the garden.",
+    "Milo the cat called his friends together. They had a secret plan.",
+    "The cats wanted to rule the world, but first they needed",
+]
+max_new_tokens = 150
+temperature = 0.8
+top_k = 50
+seed = 100
+samples_path = "runs/baseline/samples.json"
+
+[logging]
+metrics_path = "runs/baseline/metrics.jsonl"
+loss_plot_path = "runs/baseline/loss_curves.png"
+
+[checkpoints]
+initial_path = "runs/baseline/initial.pt"
