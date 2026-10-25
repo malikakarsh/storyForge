@@ -37,3 +37,7 @@ steps = 500
 learning_rate = 0.001
 weight_decay = 0.0
 target_loss = 0.02
+
+[evaluation]
+batch_size = 8
+target_tokens = 32768
