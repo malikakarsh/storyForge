@@ -21,6 +21,19 @@ validation_path = "artifacts/val_tokens.npy"
 
 [training]
 batch_size = 8
+gradient_accumulation_steps = 8
+token_budget = 25000000
+
+learning_rate = 0.0003
+min_learning_rate = 0.00003
+weight_decay = 0.1
+beta1 = 0.9
+beta2 = 0.95
+
+lr_schedule = "cosine"
+warmup_steps = 100
+gradient_clip = 1.0
+eval_every = 100
 
 [model]
 max_context = 256
